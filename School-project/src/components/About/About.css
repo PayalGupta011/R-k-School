@@ -1,0 +1,179 @@
+/* ── ABOUT — full-screen snap section ── */
+.about-section {
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  background: var(--bg-light); /* Changed to light grey-blue for high card contrast */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 24px;
+}
+
+.about-inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: var(--navbar-h);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+/* Section label & title — in About.css because About uses them */
+.about-section .section-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.about-section .section-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(24px, 2.8vw, 36px);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.about-section .section-title .text-blue {
+  color: var(--primary);
+}
+
+/* Points */
+.about-points {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-point {
+  background: #ffffff; /* Crisp white card */
+  border: 1px solid rgba(19, 50, 122, 0.05); /* Clean definition border */
+  border-radius: var(--radius-md);
+  padding: 20px 24px; /* Spacious card padding */
+  box-shadow: 0 6px 20px rgba(10, 31, 82, 0.02); /* Soft shadow */
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow, border-color;
+}
+
+.about-point:hover {
+  transform: translateY(-6px) scale(1.02); /* Tactile pop */
+  border-color: rgba(44, 91, 214, 0.2); /* Highlight border */
+  box-shadow: 0 16px 36px rgba(10, 31, 82, 0.07); /* Floating shadow */
+}
+
+.about-point-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--bg-section);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.about-point:hover .about-point-icon {
+  background: var(--primary);
+  transform: scale(1.06);
+}
+
+.about-point-body h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0 0 4px;
+}
+
+.about-point-body p {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Image column */
+.about-img-wrap {
+  position: relative;
+  height: calc(100vh - var(--navbar-h) - 80px);
+  max-height: 520px;
+}
+
+.about-img-frame {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  height: 100%;
+  width: 100%;
+}
+
+.about-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-badge {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 90px;
+  height: 90px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.about-badge .badge-num {
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.about-badge .badge-text {
+  font-size: 9.5px;
+  opacity: 0.85;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .about-section {
+    height: auto;
+    min-height: 100vh;
+    padding: calc(var(--navbar-h) + 24px) 24px 40px;
+    align-items: flex-start;
+  }
+
+  .about-inner {
+    grid-template-columns: 1fr;
+    padding-top: 0;
+    gap: 32px;
+  }
+
+  .about-img-wrap {
+    height: 280px;
+    max-height: 280px;
+    order: -1;
+  }
+}

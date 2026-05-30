@@ -1,0 +1,206 @@
+/* ── PREMIUM FOOTER — Styled to match the Home Hero section aesthetics ── */
+
+.footer {
+  height: 100vh; /* Full viewport snap-section on homepage */
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  background-color: #060e26;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(240, 171, 38, 0.08) 0px, transparent 35%),
+    radial-gradient(at 100% 0%, rgba(44, 91, 214, 0.08) 0px, transparent 40%);
+  border-top: 3px solid var(--accent); /* Premium sunshine gold top separation road */
+  color: rgba(255, 255, 255, 0.70);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 24px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* ── STANDALONE MODE (When rendered on scrollable pages without snapping) ── */
+.footer.footer-standalone {
+  height: auto !important;
+  min-height: auto !important;
+  scroll-snap-align: none !important;
+  scroll-snap-stop: normal !important;
+  padding: 80px 24px 40px !important;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: calc(var(--navbar-h) / 2);
+}
+
+.footer.footer-standalone .footer-inner {
+  padding-top: 0 !important;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1.1fr 1.1fr 1fr;
+  gap: 50px;
+  margin-bottom: 44px;
+}
+
+/* Brand column */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.footer-logo-img {
+  height: 42px;
+  width: 42px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  flex-shrink: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-logo-img:hover {
+  transform: rotate(15deg) scale(1.1);
+  box-shadow: 0 0 15px rgba(240, 171, 38, 0.4);
+}
+
+.footer-brand-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+.footer-tagline {
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.52);
+  margin-bottom: 24px;
+  max-width: 320px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+
+.social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: inherit;
+  outline: none;
+}
+
+.social-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--primary-dark);
+  transform: translateY(-4px) rotate(8deg);
+  box-shadow: 0 8px 20px rgba(240, 171, 38, 0.35);
+}
+
+/* Link columns */
+.footer-col h5 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  margin: 0 0 22px;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-col h5::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 24px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.footer-col ul li {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.48);
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+.footer-col ul li a {
+  color: rgba(255, 255, 255, 0.48);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block;
+}
+
+/* Premium micro-interaction: Slide to the right and turn gold */
+.footer-col ul li a:hover {
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+/* Bottom bar */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 24px;
+  text-align: center;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.32);
+}
+
+/* Responsive grid layout */
+@media (max-width: 1024px) {
+  .footer {
+    height: auto;
+    min-height: 100vh;
+    padding: calc(var(--navbar-h) + 40px) 24px 40px;
+    justify-content: flex-start;
+  }
+
+  .footer-inner { padding-top: 0; }
+  .footer-top { 
+    grid-template-columns: 1.2fr 1fr; 
+    gap: 40px; 
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-top { 
+    grid-template-columns: 1fr; 
+    gap: 30px; 
+  }
+  
+  .footer.footer-standalone {
+    padding: 60px 16px 30px !important;
+  }
+}

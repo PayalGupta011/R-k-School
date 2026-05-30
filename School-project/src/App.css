@@ -1,0 +1,37 @@
+/* App.css — shared utility classes used across all components */
+
+.section-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(24px, 2.8vw, 36px);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.section-title .text-blue {
+  color: var(--primary);
+}
+
+/* Standalone Pages Layout — Prevents content from sliding under the fixed navbar */
+.standalone-page {
+  padding-top: 0;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.standalone-page > *:first-child {
+  flex-grow: 1;
+}

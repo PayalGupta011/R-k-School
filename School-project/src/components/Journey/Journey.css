@@ -1,0 +1,389 @@
+/* ── STUDENT JOURNEY — vertical timeline & interactive courses ── */
+.journey-section {
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  background: var(--primary);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Decorative bg blobs */
+.journey-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 10% 30%, rgba(255,255,255,0.06) 0%, transparent 45%),
+    radial-gradient(circle at 90% 70%, rgba(255,255,255,0.04) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+/* Decorative large circle accent */
+.journey-section::after {
+  content: '';
+  position: absolute;
+  right: -120px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  border: 60px solid rgba(255,255,255,0.03);
+  pointer-events: none;
+}
+
+.journey-inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: calc(var(--navbar-h) + 12px) 24px 24px;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* ── LEFT: Header & Dynamic Card ── */
+.journey-header {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.journey-header .section-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 12px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.journey-header .section-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 800;
+  color: white;
+  margin-bottom: 20px;
+  line-height: 1.15;
+}
+
+/* Dynamic Interactive Course Card */
+.journey-detail-card {
+  background: rgba(255, 255, 255, 0.13); /* Brighter glass overlay to pop against deep navy */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(255, 255, 255, 0.25); /* More defined border */
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  box-shadow: 
+    0 20px 45px rgba(0, 0, 0, 0.25),
+    0 0 25px rgba(255, 255, 255, 0.05); /* Double layer depth glow */
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-bottom: 24px;
+  text-align: left;
+  will-change: transform, border-top, box-shadow;
+}
+
+.journey-detail-card:hover {
+  transform: translateY(-8px) scale(1.01); /* Dynamic lift and pop */
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 28px 55px rgba(0, 0, 0, 0.35),
+    0 0 35px rgba(255, 255, 255, 0.08);
+}
+
+.detail-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.detail-card-age {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 4px 12px;
+  border-radius: 50px;
+  text-transform: uppercase;
+}
+
+.detail-card-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.detail-card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 2px;
+}
+
+.detail-card-subtitle {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.detail-card-focus {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 20px;
+}
+
+.detail-card-focus strong {
+  color: var(--accent);
+}
+
+/* Key activities tag chips */
+.detail-card-activities {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.activities-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.5px;
+}
+
+.activities-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.activity-tag {
+  display: inline-block;
+  padding: 5px 12px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: white;
+  border-radius: 50px;
+  font-size: 11.5px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.activity-tag:hover {
+  background-color: var(--accent);
+  color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(240, 171, 38, 0.25);
+}
+
+/* Progress bar */
+.journey-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.journey-progress-label {
+  font-size: 10px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.journey-progress-bar {
+  width: 100%;
+  max-width: 280px;
+  height: 4px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.journey-progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  animation: progressPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes progressPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.75; }
+}
+
+
+/* ── RIGHT: Interactive Vertical timeline Track ── */
+.journey-track {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  padding-left: 28px;
+}
+
+.timeline-instructions {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 12px;
+  text-align: left;
+  letter-spacing: 0.5px;
+}
+
+/* Continuous vertical line */
+.journey-track::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20px;
+  bottom: 20px;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.25) 20%,
+    rgba(255,255,255,0.25) 80%,
+    rgba(255,255,255,0.05)
+  );
+}
+
+/* Each step card */
+.journey-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 16px 0;
+  position: relative;
+  cursor: pointer;
+  opacity: 0.65;
+  transform: scale(0.97);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  will-change: transform, opacity;
+}
+
+.journey-step:nth-child(1) { border-top: none; }
+
+.journey-step:hover {
+  opacity: 0.88;
+  transform: scale(0.99) translateX(2px); /* Light slide indicators */
+}
+
+.journey-step.active {
+  opacity: 1;
+  transform: scale(1) translateX(6px); /* Stronger active pop */
+}
+
+/* Dot on the line */
+.journey-step-dot {
+  position: absolute;
+  left: -36px;
+  top: 20px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.35);
+  transition: all 0.35s ease;
+  flex-shrink: 0;
+}
+
+.journey-step.active .journey-step-dot {
+  box-shadow: 0 0 0 5px rgba(255,255,255,0.15);
+  transform: scale(1.2);
+}
+
+/* Icon circle */
+.journey-step-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  transition: all 0.35s ease;
+  color: white;
+}
+
+.journey-step.active .journey-step-icon {
+  transform: scale(1.08) rotate(-4deg);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+/* Text */
+.journey-step-body {
+  flex: 1;
+  padding-top: 2px;
+  text-align: left;
+}
+
+.journey-step-body h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  transition: color 0.25s ease;
+}
+
+.journey-step-body p {
+  color: rgba(255,255,255,0.5);
+  font-size: 12.5px;
+  margin: 0;
+  transition: color 0.25s ease;
+}
+
+.journey-step.active .journey-step-body p {
+  color: rgba(255,255,255,0.8);
+}
+
+
+/* Responsive design rules */
+@media (max-width: 1024px) {
+  .journey-section {
+    height: auto;
+    min-height: 100vh;
+    align-items: flex-start;
+    padding: calc(var(--navbar-h) + 24px) 24px 40px;
+  }
+
+  .journey-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0;
+  }
+
+  .journey-header {
+    text-align: center;
+    align-items: center;
+  }
+
+  .journey-progress {
+    align-items: center;
+  }
+}

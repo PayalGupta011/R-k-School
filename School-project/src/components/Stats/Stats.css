@@ -1,0 +1,471 @@
+/* ── STATS / WHY CHOOSE US — Modern Premium Responsive Layout ── */
+
+.stats-section {
+  height: 100vh; /* Strict viewport height on desktop for snapping */
+  scroll-snap-align: start !important;
+  scroll-snap-stop: always !important;
+  background-color: var(--bg-section); /* Soft warm blue-cream section background */
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(240, 171, 38, 0.04) 0px, transparent 40%),
+    radial-gradient(at 100% 100%, rgba(44, 91, 214, 0.05) 0px, transparent 40%);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: calc(var(--navbar-h) + 12px) 24px 12px; /* Extremely compact padding to fit desktop viewport */
+  position: relative;
+  box-sizing: border-box;
+}
+
+.stats-inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Header Centered block */
+.stats-header-center {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 20px; /* Tighter margins to fit vertical viewport */
+}
+
+.stats-header-center .section-label {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--primary-light);
+  background-color: rgba(44, 91, 214, 0.08);
+  padding: 5px 14px;
+  border-radius: 50px;
+  margin-bottom: 8px;
+  box-shadow: 0 4px 10px rgba(19, 50, 122, 0.03);
+}
+
+.stats-header-center .section-title {
+  font-size: clamp(24px, 3vw, 36px); /* More compact */
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.section-subtitle-text {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* Grid Layout */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr;
+  gap: 30px; /* Reduced gap for more horizontal content space (avoids height expansion) */
+  align-items: center;
+}
+
+/* ── LEFT: Interactive Benefit Tabs ── */
+.benefits-tab-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Compact gap */
+}
+
+.benefit-item {
+  background: #ffffff; /* Clean white card contrast */
+  border: 1px solid rgba(19, 50, 122, 0.06);
+  border-radius: 12px;
+  padding: 14px 16px; /* Compact padding */
+  display: flex;
+  gap: 14px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(19, 50, 122, 0.02);
+}
+
+.benefit-item:hover {
+  border-color: rgba(44, 91, 214, 0.45);
+  box-shadow: 0 14px 28px rgba(19, 50, 122, 0.08);
+  transform: translateY(-5px) scale(1.01); /* Micro scale & lift */
+  z-index: 3;
+}
+
+.benefit-indicator {
+  width: 4px;
+  height: 100%;
+  background: var(--border-light);
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.benefit-item:hover .benefit-indicator {
+  background: rgba(44, 91, 214, 0.4);
+  width: 5px;
+}
+
+.benefit-item.benefit-active {
+  background: linear-gradient(145deg, #ffffff 0%, var(--bg-section) 100%);
+  border-color: rgba(44, 91, 214, 0.35);
+  box-shadow: 0 12px 24px rgba(19, 50, 122, 0.06); /* Active lift shadow */
+  transform: translateY(-4px); /* Remains lifted up on active */
+  z-index: 2; /* Active card renders on top of inactive ones */
+}
+
+.benefit-item.benefit-active .benefit-indicator {
+  background: var(--primary-light);
+  width: 6px;
+  box-shadow: 0 0 12px var(--primary-light);
+}
+
+.benefit-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+}
+
+.benefit-tag {
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--primary-light);
+}
+
+.benefit-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+  transition: color 0.3s ease;
+}
+
+.benefit-item.benefit-active .benefit-title {
+  color: var(--primary);
+}
+
+.benefit-text {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.benefit-item.benefit-active .benefit-text {
+  max-height: 70px;
+  opacity: 0.95;
+  margin-top: 4px;
+}
+
+/* ── RIGHT: Dashboard Grid ── */
+.stats-cards-dashboard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px; /* Reduced gap */
+}
+
+.dashboard-stat-card {
+  position: relative;
+  background: #ffffff; /* Clean white card contrast */
+  border: 1px solid rgba(19, 50, 122, 0.08); /* Clear boundary line */
+  border-radius: 16px;
+  padding: 16px 20px; /* Reduced padding to save height space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  min-height: 165px; /* Flexible height to adapt to viewport and font wrap */
+  height: auto;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 24px rgba(19, 50, 122, 0.04); /* Soft premium shadow */
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* Clean uniform grid layout without vertical translate stagger */
+.dashboard-stat-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: var(--accent-color);
+  box-shadow: 0 16px 32px rgba(19, 50, 122, 0.09);
+}
+
+/* Featured Stat card style (deep blue premium glassmorphism) */
+.dashboard-stat-card.card-featured {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  border-color: transparent;
+  color: #ffffff;
+}
+
+.dashboard-stat-card.card-featured .card-hover-arrow {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-badge-icon {
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.dashboard-stat-card:hover .card-badge-icon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.card-hover-arrow {
+  font-size: 13px;
+  color: var(--text-muted);
+  opacity: 0;
+  transform: translate(-5px, 5px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dashboard-stat-card:hover .card-hover-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.card-middle-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-top: 8px;
+}
+
+.card-counter-num {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.dashboard-stat-card.card-featured .card-counter-num {
+  color: #ffffff;
+}
+
+.dashboard-stat-card:hover .card-counter-num {
+  color: var(--accent-color);
+}
+
+.dashboard-stat-card.card-featured:hover .card-counter-num {
+  color: var(--accent);
+}
+
+.card-label-txt {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.1px;
+}
+
+.dashboard-stat-card.card-featured .card-label-txt {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Stat card detailed description */
+.card-detail-desc {
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--text-body);
+  margin-top: 6px;
+  opacity: 0.85;
+}
+
+.dashboard-stat-card.card-featured .card-detail-desc {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Underline decoration */
+.card-bottom-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dashboard-stat-card:hover .card-bottom-line {
+  transform: scaleX(1);
+}
+
+.dashboard-stat-card.card-featured .card-bottom-line {
+  background: var(--accent) !important;
+}
+
+/* ==========================================================================
+   ── RESPONSIVE MEDIA QUERIES FOR STABLE HEIGHTS & LAYOUTS ──
+   ========================================================================== */
+
+/* ── HEIGHT CONSTRAINED DEVICES (Standard laptops like 1366x768 or short displays) ── */
+@media (max-height: 820px) and (min-width: 1025px) {
+  .stats-section {
+    padding-top: calc(var(--navbar-h) + 8px);
+    padding-bottom: 8px;
+  }
+  
+  .stats-header-center {
+    margin-bottom: 12px;
+  }
+  
+  .stats-header-center .section-label {
+    padding: 4px 12px;
+    margin-bottom: 6px;
+    font-size: 9.5px;
+  }
+  
+  .stats-header-center .section-title {
+    margin-bottom: 4px;
+  }
+  
+  .section-subtitle-text {
+    font-size: 12.5px;
+    line-height: 1.4;
+  }
+
+  .stats-grid {
+    gap: 20px;
+  }
+
+  .benefits-tab-list {
+    gap: 8px;
+  }
+
+  .benefit-item {
+    padding: 10px 14px;
+    gap: 12px;
+    border-radius: 10px;
+  }
+
+  .benefit-item.benefit-active .benefit-text {
+    max-height: 55px;
+    font-size: 11.5px;
+  }
+
+  .dashboard-stat-card {
+    min-height: 140px;
+    padding: 12px 16px;
+    border-radius: 14px;
+  }
+
+  .card-badge-icon {
+    font-size: 18px;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+
+  .card-middle-content {
+    margin-top: 4px;
+  }
+
+  .card-counter-num {
+    font-size: clamp(20px, 2.2vw, 26px);
+  }
+
+  .card-detail-desc {
+    font-size: 10.5px;
+    margin-top: 4px;
+  }
+}
+
+/* ── EXTREMELY SHORT VIEWPORTS (E.g. split screen, small heights) ── */
+@media (max-height: 660px) {
+  .stats-section {
+    height: auto !important;
+    min-height: 100vh;
+    overflow-y: auto !important;
+    scroll-snap-align: none !important; /* Disable snapping to prevent cutoff scroll blocks */
+    scroll-snap-stop: normal !important;
+    padding: calc(var(--navbar-h) + 20px) 24px 30px;
+  }
+}
+
+/* ── MEDIUM DEVICES (Tablets, iPads, Smaller Desktops) ── */
+@media (max-width: 1024px) {
+  .stats-section {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+    scroll-snap-align: none !important; /* Disable snapping to prevent cutoff scroll blocks on mobile/tablet */
+    scroll-snap-stop: normal !important;
+    padding: calc(var(--navbar-h) + 30px) 24px 50px;
+    align-items: flex-start;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .benefits-tab-list {
+    gap: 14px;
+  }
+
+  .benefit-item {
+    padding: 16px 18px;
+  }
+
+  .benefit-item.benefit-active .benefit-text {
+    max-height: 80px;
+  }
+
+  .dashboard-stat-card {
+    height: auto;
+    min-height: 160px;
+    padding: 20px;
+  }
+}
+
+/* ── SMARTPHONES (Mobile viewports) ── */
+@media (max-width: 580px) {
+  .stats-section {
+    padding: calc(var(--navbar-h) + 20px) 16px 40px;
+  }
+
+  .stats-inner {
+    width: 100%;
+  }
+
+  .stats-header-center {
+    margin-bottom: 20px;
+  }
+
+  .stats-cards-dashboard {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .dashboard-stat-card {
+    height: auto;
+    min-height: 150px;
+    padding: 18px;
+  }
+}
