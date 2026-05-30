@@ -70,7 +70,7 @@
   align-items: center;
 }
 
-.admissions-hero-inner > * {
+.admissions-hero-inner>* {
   opacity: 0;
   transform: translateY(24px);
   animation: heroSlideUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
@@ -272,7 +272,8 @@
   width: 100%;
   border-radius: 50px;
   box-shadow: 0 0 15px var(--accent);
-  transition: height 0.15s linear; /* Highly responsive, buttery smooth dynamic road glow */
+  transition: height 0.15s linear;
+  /* Highly responsive, buttery smooth dynamic road glow */
   will-change: height;
 }
 
@@ -304,10 +305,21 @@
 
 
 
-.node-1 { top: 0%; }
-.node-2 { top: 33.3%; }
-.node-3 { top: 66.6%; }
-.node-4 { top: 100%; }
+.node-1 {
+  top: 0%;
+}
+
+.node-2 {
+  top: 33.3%;
+}
+
+.node-3 {
+  top: 66.6%;
+}
+
+.node-4 {
+  top: 100%;
+}
 
 .pipeline-node.active-node {
   border-color: var(--node-color);
@@ -362,14 +374,19 @@
 .level-left-cell.cell-card {
   padding-right: 50px;
 }
+
 .level-right-cell.cell-card {
   padding-left: 50px;
 }
+
 .level-left-cell.cell-circle {
-  padding-right: 120px; /* Shifted beautifully away from center timeline! */
+  padding-right: 120px;
+  /* Shifted beautifully away from center timeline! */
 }
+
 .level-right-cell.cell-circle {
-  padding-left: 120px; /* Shifted beautifully away from center timeline! */
+  padding-left: 120px;
+  /* Shifted beautifully away from center timeline! */
 }
 
 /* Circular Halos wrapper for kids image frames */
@@ -440,6 +457,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -477,7 +495,8 @@
 .visual-circle-wrapper:hover .visual-ring-decor {
   transform: scale(1.03);
   border-style: dotted;
-  animation-duration: 12s; /* spin faster on hover! */
+  animation-duration: 12s;
+  /* spin faster on hover! */
 }
 
 /* The circular kid image itself */
@@ -509,13 +528,42 @@
   animation: floatBubble 4s infinite ease-in-out;
 }
 
-.p-1 { width: 30px; height: 30px; top: 15%; left: 15%; animation-delay: 0s; }
-.p-2 { width: 24px; height: 24px; bottom: 20%; right: 15%; animation-delay: 1.5s; }
-.p-3 { width: 16px; height: 16px; top: 40%; right: 25%; animation-delay: 0.8s; }
+.p-1 {
+  width: 30px;
+  height: 30px;
+  top: 15%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.p-2 {
+  width: 24px;
+  height: 24px;
+  bottom: 20%;
+  right: 15%;
+  animation-delay: 1.5s;
+}
+
+.p-3 {
+  width: 16px;
+  height: 16px;
+  top: 40%;
+  right: 25%;
+  animation-delay: 0.8s;
+}
 
 @keyframes floatBubble {
-  0%, 100% { transform: translateY(0) scale(1); opacity: 0.12; }
-  50%       { transform: translateY(-12px) scale(1.1); opacity: 0.18; }
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.12;
+  }
+
+  50% {
+    transform: translateY(-12px) scale(1.1);
+    opacity: 0.18;
+  }
 }
 
 .level-details-card {
@@ -526,11 +574,12 @@
   padding: 40px;
   box-shadow: var(--shadow-sm);
   border-left: 6px solid var(--border-light);
-  border-top: 1px solid rgba(255,255,255,0.8);
-  border-right: 1px solid rgba(19,50,122,0.03);
-  border-bottom: 1px solid rgba(19,50,122,0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  border-right: 1px solid rgba(19, 50, 122, 0.03);
+  border-bottom: 1px solid rgba(19, 50, 122, 0.03);
   text-align: left;
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); /* Premium ease-out-expo timing */
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Premium ease-out-expo timing */
   max-width: 500px;
   width: 100%;
   will-change: transform, box-shadow;
@@ -604,10 +653,21 @@
 }
 
 /* Age badge colors mapped beautifully */
-.level-row-item:nth-child(1) .level-age-badge { color: var(--text-dark); }
-.level-row-item:nth-child(2) .level-age-badge { color: var(--primary-dark); }
-.level-row-item:nth-child(3) .level-age-badge { color: #ffffff; }
-.level-row-item:nth-child(4) .level-age-badge { color: #ffffff; }
+.level-row-item:nth-child(1) .level-age-badge {
+  color: var(--text-dark);
+}
+
+.level-row-item:nth-child(2) .level-age-badge {
+  color: var(--primary-dark);
+}
+
+.level-row-item:nth-child(3) .level-age-badge {
+  color: #ffffff;
+}
+
+.level-row-item:nth-child(4) .level-age-badge {
+  color: #ffffff;
+}
 
 .level-card-desc {
   font-size: 13px;
@@ -661,10 +721,21 @@
   will-change: transform, box-shadow;
 }
 
-.level-row-item:nth-child(1) .btn-apply-level { color: var(--text-dark); }
-.level-row-item:nth-child(2) .btn-apply-level { color: var(--primary-dark); }
-.level-row-item:nth-child(3) .btn-apply-level { color: #ffffff; }
-.level-row-item:nth-child(4) .btn-apply-level { color: #ffffff; }
+.level-row-item:nth-child(1) .btn-apply-level {
+  color: var(--text-dark);
+}
+
+.level-row-item:nth-child(2) .btn-apply-level {
+  color: var(--primary-dark);
+}
+
+.level-row-item:nth-child(3) .btn-apply-level {
+  color: #ffffff;
+}
+
+.level-row-item:nth-child(4) .btn-apply-level {
+  color: #ffffff;
+}
 
 .btn-apply-level:hover {
   transform: translateY(-2px);
@@ -704,7 +775,10 @@
   overflow-y: auto;
   scrollbar-width: none;
 }
-.admissions-form-modal::-webkit-scrollbar { display: none; }
+
+.admissions-form-modal::-webkit-scrollbar {
+  display: none;
+}
 
 .form-close-btn {
   position: absolute;
@@ -867,26 +941,66 @@
   animation: floatBalloon 3.8s infinite linear;
 }
 
-.b-gold { left: 15%; animation-delay: 0s; }
-.b-mint { left: 45%; animation-delay: 1.2s; }
-.b-blue { left: 75%; animation-delay: 0.6s; }
-.b-gold-light { left: 30%; animation-delay: 2s; }
-.b-mint-light { left: 60%; animation-delay: 2.8s; }
-.b-blue-light { left: 85%; animation-delay: 1.5s; }
+.b-gold {
+  left: 15%;
+  animation-delay: 0s;
+}
 
-.cf-1 { left: 10%; animation-delay: 0.5s; }
-.cf-2 { left: 35%; animation-delay: 1.8s; }
-.cf-3 { left: 55%; animation-delay: 0.9s; }
-.cf-4 { left: 80%; animation-delay: 2.3s; }
+.b-mint {
+  left: 45%;
+  animation-delay: 1.2s;
+}
+
+.b-blue {
+  left: 75%;
+  animation-delay: 0.6s;
+}
+
+.b-gold-light {
+  left: 30%;
+  animation-delay: 2s;
+}
+
+.b-mint-light {
+  left: 60%;
+  animation-delay: 2.8s;
+}
+
+.b-blue-light {
+  left: 85%;
+  animation-delay: 1.5s;
+}
+
+.cf-1 {
+  left: 10%;
+  animation-delay: 0.5s;
+}
+
+.cf-2 {
+  left: 35%;
+  animation-delay: 1.8s;
+}
+
+.cf-3 {
+  left: 55%;
+  animation-delay: 0.9s;
+}
+
+.cf-4 {
+  left: 80%;
+  animation-delay: 2.3s;
+}
 
 @keyframes floatBalloon {
   0% {
     transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 1;
   }
+
   50% {
     transform: translate3d(15px, -250px, 0) rotate(15deg);
   }
+
   100% {
     transform: translate3d(-15px, -500px, 0) rotate(-15deg);
     opacity: 0;
@@ -900,8 +1014,15 @@
 }
 
 @keyframes successPop {
-  from { transform: scale(0.4) rotate(-20deg); opacity: 0; }
-  to   { transform: scale(1) rotate(0deg); opacity: 1; }
+  from {
+    transform: scale(0.4) rotate(-20deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
 }
 
 .success-title {
@@ -989,6 +1110,7 @@
   font-size: 26px;
   font-weight: 800;
   margin-bottom: 12px;
+  color: #ffffff;
 }
 
 .faqs-desc {
@@ -1030,6 +1152,7 @@
 
 /* ── 6. RESPONSIVE DESIGN BREAKPOINTS ── */
 @media (max-width: 1024px) {
+
   /* Shift vertical pipeline road on tablet/mobiles */
   .ladder-progress-pipeline {
     left: 20px;
@@ -1037,12 +1160,12 @@
     bottom: 80px;
     transform: none;
   }
-  
+
   .pipeline-node {
     left: 3px;
     transform: translateY(-50%);
   }
-  
+
   .pipeline-node.active-node {
     transform: translateY(-50%) scale(1.15);
   }
@@ -1050,7 +1173,8 @@
 
 
   .ladder-levels-list {
-    margin-left: 64px; /* Reduced shift for tablet viewports */
+    margin-left: 64px;
+    /* Reduced shift for tablet viewports */
     width: calc(100% - 64px);
     gap: 48px;
   }
