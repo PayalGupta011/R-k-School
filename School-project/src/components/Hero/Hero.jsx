@@ -1,5 +1,5 @@
 import './Hero.css'
-import rkBuilding from '../../assets/rk_building.jpg'
+import heroCover from '../../assets/Hero-cover.jpeg'
 
 function Hero() {
   return (
@@ -8,7 +8,7 @@ function Hero() {
       {/* ── Full-bleed background image ── */}
       <div className="hero-bg">
         <img
-          src={rkBuilding}
+          src={heroCover}
           alt="RK School Campus"
           className="hero-bg-img"
         />
